@@ -1,0 +1,21 @@
+:root {
+  --c-text-dark: #2b2a5e;
+  --c-text-mute: #9aa0c0;
+  --c-accent: #4dc8ff;
+  --c-pink: #e83e8c;
+  --c-purple: #7b5cff;
+  --grad-title: linear-gradient(90deg, #7b3cff 0%, #e83e8c 100%);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body, #app { width: 100%; height: 100%; overflow: hidden; }
+body {
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  background: linear-gradient(135deg, #f3f1fb 0%, #eef0fb 50%, #f6f3fb 100%);
+  color: var(--c-text-dark);
+}
+.gradient-text {
+  background: var(--grad-title);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
