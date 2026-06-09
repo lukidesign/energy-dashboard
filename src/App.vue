@@ -1,4 +1,5 @@
 <template>
+  <video class="bg-video" autoplay muted loop playsinline :src="bgVideo"></video>
   <div class="screen-wrap">
     <div class="screen" ref="screenRef">
       <HeaderBar />
@@ -38,6 +39,7 @@ import TopMetrics from './components/TopMetrics.vue'
 import EcoCards from './components/EcoCards.vue'
 import PowerBarChart from './components/PowerBarChart.vue'
 
+const bgVideo = import.meta.env.BASE_URL + 'Digitaldatabg.mp4'
 const screenRef = ref<HTMLElement>()
 let cleanup: () => void
 onMounted(() => { if (screenRef.value) cleanup = useScale(screenRef.value) })
@@ -45,7 +47,11 @@ onUnmounted(() => cleanup?.())
 </script>
 
 <style scoped>
-.screen-wrap { width: 100%; height: 100%; position: relative; overflow: hidden; }
+.bg-video {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; z-index: 0; pointer-events: none;
+}
+.screen-wrap { width: 100%; height: 100%; position: relative; overflow: hidden; z-index: 1; }
 .screen {
   position: absolute; left: 50%; top: 50%;
   width: 1920px; height: 1080px;
